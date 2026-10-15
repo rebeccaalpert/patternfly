@@ -21,12 +21,12 @@ Any of the files above are meant for use in consuming the library. The recommend
 
 ## Development
 
-**Felt Development requires Node v20.18.3 or greater**
+**Felt Development requires Node v24.22.0 or greater**
 
 To setup the Felt development environment:
 
 - clone the project
-- ensure you have Node.js v20.18.3 or greater installed
+- ensure you have Node.js v24.22.0 or greater installed
 - enable corepack: `corepack enable`
 - run `yarn install` from the project root
 - run `yarn start`
@@ -78,6 +78,19 @@ When making visual changes to a full page example, new example preview screensho
 ### Contribution guide 
 For information on how to contribute, refer to our [contribution guide](https://pf-core-staging.patternfly.org/contribution).
 
+### Breaking changes
+Use the following types of commit messages for breaking changes:
+
+```text
+feat(button)!: replace the sizing API
+```
+
+Nx recognizes this commit-body marker:
+
+```text
+BREAKING CHANGE: The old sizing API has been removed.
+```
+
 ### Development guidelines
 For more information on using CSS, Sass, and handlebars, refer to our [development guidelines](https://pf-core-staging.patternfly.org/guidelines).
 
@@ -128,4 +141,3 @@ Felt is supported on the latest two major versions of the following browsers:
 - Firefox
 - Safari
 - Edge
-
