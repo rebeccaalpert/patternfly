@@ -1,17 +1,18 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "defaultBase": "main",
+  "defaultBase": "felt-v1",
   "release": {
-    "projects": ["@patternfly/patternfly"],
+    "projects": ["@rh-felt/styles"],
     "projectsRelationship": "fixed",
     "releaseTag": {
-      "pattern": "prerelease-v{version}",
+      "pattern": "felt-v{version}",
       "strictPreid": true,
       "checkAllBranchesWhen": false
     },
     "version": {
       "specifierSource": "conventional-commits",
       "currentVersionResolver": "git-tag",
+      "fallbackCurrentVersionResolver": "disk",
       "manifestRootsToUpdate": ["dist"],
       "versionActionsOptions": {
         "skipLockFileUpdate": true
@@ -20,25 +21,29 @@
     "conventionalCommits": {
       "useCommitScope": false,
       "types": {
-        "perf": {
+        "chore": {
+          "semverBump": "none",
+          "changelog": false
+        },
+        "ci": {
           "semverBump": "patch",
+          "changelog": false
+        },
+        "__INVALID__": {
+          "semverBump": "none",
           "changelog": {
-            "title": "Performance Improvements"
+            "title": "Uncategorized changes"
           }
         }
       }
     },
     "changelog": {
+      "automaticFromRef": true,
       "workspaceChangelog": {
         "createRelease": "github",
         "file": false
       },
       "projectChangelogs": false
-    },
-    "git": {
-      "commit": false,
-      "stageChanges": false,
-      "tag": true
     }
   },
   "targetDefaults": {
@@ -50,5 +55,6 @@
         "tag": "prerelease"
       }
     }
-  }
+  },
+  "analytics": false
 }
